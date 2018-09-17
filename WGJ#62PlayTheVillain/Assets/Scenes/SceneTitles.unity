@@ -819,6 +819,7 @@ GameObject:
   - component: {fileID: 1623349702}
   - component: {fileID: 1623349701}
   - component: {fileID: 1623349700}
+  - component: {fileID: 1623349703}
   m_Layer: 5
   m_Name: BtnNewGame
   m_TagString: Untagged
@@ -919,3 +920,14 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1623349698}
+--- !u!114 &1623349703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1623349698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2bdea03a023e3a439544697f7d38336, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
