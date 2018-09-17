@@ -24,7 +24,14 @@ public class ScriptBtnMenu : MonoBehaviour {
 
         Time.timeScale = 0;
 
-        menu.SetActive(true);
+        GameObject[] sceneObjects = Resources.FindObjectsOfTypeAll<GameObject>();
+        foreach (GameObject go in sceneObjects)
+        {
+            if ("Menu" == go.name)
+            {
+                go.SetActive(true);
+            }
+        }
 
         btnMenu.interactable = false;
 
