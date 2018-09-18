@@ -13,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - Entities
-  - Ground
+  - 
+  - 
   - 
   - 
   - 
@@ -43,6 +43,9 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 268224499
+    locked: 0
+  - name: Path
+    uniqueID: 69152915
     locked: 0
   - name: Entities
     uniqueID: 1239867245

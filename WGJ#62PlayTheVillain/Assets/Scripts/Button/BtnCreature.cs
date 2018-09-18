@@ -15,6 +15,8 @@ public class BtnCreature : MonoBehaviour {
     [SerializeField]
     private GameObject creature;
 
+    private Vector2 startPosition;
+
 	// Use this for initialization
 	void Start () {
 
@@ -22,6 +24,8 @@ public class BtnCreature : MonoBehaviour {
         SetCorrectMP();
 
         gameObject.GetComponent<Button>().onClick.AddListener(PlaceCreature);
+
+        startPosition = GameObject.Find("Level").GetComponent<ScriptLevelGenerator>().GetStartPosition();
 
     }
 	
@@ -49,8 +53,7 @@ public class BtnCreature : MonoBehaviour {
 
     private void PlaceCreature()
     {
-        //Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 position = new Vector3(-6.5f, 0.5f, 0);
+        Vector3 position = new Vector3(startPosition.x, startPosition.y, 0);
         Instantiate(creature, position, Quaternion.identity, GameObject.Find("PlayerArmy").transform);
 
         txtMP.text = (mp - cost)+ " MP";
