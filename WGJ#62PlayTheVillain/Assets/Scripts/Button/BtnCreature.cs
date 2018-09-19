@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class BtnCreature : MonoBehaviour {
 
-    private Text txtMP;
-    private string strMP;
+    private ScriptMagicPoint scriptMP;
     private int mp;
 
     [SerializeField]
@@ -19,19 +18,18 @@ public class BtnCreature : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-        txtMP = GameObject.Find("TxtMagicPointNumber").GetComponent<Text>();
-        SetCorrectMP();
-
+        
         gameObject.GetComponent<Button>().onClick.AddListener(PlaceCreature);
 
         startPosition = GameObject.Find("Level").GetComponent<ScriptLevelGenerator>().GetStartPosition();
 
+        scriptMP = GameObject.Find("TxtMagicPointNumber").GetComponent<ScriptMagicPoint>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        SetCorrectMP();
+
+        mp = scriptMP.GetMagicPoint();
 
         if (mp < cost)
         {
@@ -44,19 +42,12 @@ public class BtnCreature : MonoBehaviour {
 
     }
 
-    private void SetCorrectMP()
-    {
-        strMP = txtMP.text;
-        strMP = strMP.Substring(0, strMP.Length - 3);
-        mp = int.Parse(strMP);
-    }
-
     private void PlaceCreature()
     {
         Vector3 position = new Vector3(startPosition.x, startPosition.y, 0);
         Instantiate(creature, position, Quaternion.identity, GameObject.Find("PlayerArmy").transform);
-
-        txtMP.text = (mp - cost)+ " MP";
+                
+        scriptMP.AddMagicPoint(-cost);
     }
 
 }

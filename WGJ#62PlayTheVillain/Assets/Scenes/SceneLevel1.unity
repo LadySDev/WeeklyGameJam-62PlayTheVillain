@@ -173,7 +173,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &124452472
 GameObject:
@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 5
-  creature: {fileID: 0}
+  creature: {fileID: 1265215445628552, guid: c0654bba9ee367748b4b846738ccc4d4, type: 2}
 --- !u!1 &369792785
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,7 +466,7 @@ RectTransform:
   - {fileID: 732060504}
   - {fileID: 1673485862}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1021,7 +1021,7 @@ Transform:
   m_Children:
   - {fileID: 1639385531}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1332844533
 GameObject:
@@ -1542,6 +1542,7 @@ GameObject:
   - component: {fileID: 1673485862}
   - component: {fileID: 1673485864}
   - component: {fileID: 1673485863}
+  - component: {fileID: 1673485865}
   m_Layer: 5
   m_Name: TxtMagicPointNumber
   m_TagString: Untagged
@@ -1606,6 +1607,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1673485861}
+--- !u!114 &1673485865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1673485861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07d6d9febe0c69d40bfcc69cee703f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mp: 5
 --- !u!1 &1854057962
 GameObject:
   m_ObjectHideFlags: 0

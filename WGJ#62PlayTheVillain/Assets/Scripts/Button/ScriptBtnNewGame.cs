@@ -24,6 +24,7 @@ public class ScriptBtnNewGame : MonoBehaviour {
     private void NewGame()
     {
         SceneManager.LoadScene(1);
+        Time.timeScale = 1;
     }
 
 }

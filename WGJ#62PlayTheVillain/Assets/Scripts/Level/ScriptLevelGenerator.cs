@@ -18,12 +18,15 @@ public class ScriptLevelGenerator : MonoBehaviour {
     private GameObject ennemies;
 
     private Level1 level1;
-        
+
+    private void Awake()
+    {
+        level1 = new Level1();
+    }
+
     // Use this for initialization
     void Start () {
-        
-        level1 = new Level1();
-
+           
         int rows = level1.GetLevelGround().GetLength(0);
         int cols = level1.GetLevelGround().GetLength(1);
 
@@ -74,7 +77,8 @@ public class ScriptLevelGenerator : MonoBehaviour {
 
                 if (1 == value)
                 {
-                    Instantiate(ennemy1, new Vector3(x, -y, 0), Quaternion.identity, ennemies.transform);
+                    GameObject i = Instantiate(ennemy1, ennemies.transform);
+                    i.GetComponent<RectTransform>().position = new Vector3(x, -y, 0);
                 }
             }
         }

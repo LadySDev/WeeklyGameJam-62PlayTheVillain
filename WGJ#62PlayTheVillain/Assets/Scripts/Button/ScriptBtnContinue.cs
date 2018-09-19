@@ -33,6 +33,8 @@ public class ScriptBtnContinue : MonoBehaviour {
         }
 
         menu.SetActive(false);
+
+        Time.timeScale = 1;
     }
 
 }

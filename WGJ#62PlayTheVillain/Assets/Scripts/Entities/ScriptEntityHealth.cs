@@ -2,31 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScriptEnnemy1 : MonoBehaviour {
+public class ScriptEntityHealth : MonoBehaviour {
+
+    [SerializeField]
+    private int healthMax;
 
     [SerializeField]
     private int health;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
-	}
+        
+    }
 
     //Health Getter
+    public int GetHealthMax()
+    {
+        return healthMax;
+    }
+
+    //Health Setter
     public void SetHealth(int health)
     {
         this.health = health;
     }
 
-    //Health Setter
+    //Health Getter
     public int GetHealth()
     {
         return health;
