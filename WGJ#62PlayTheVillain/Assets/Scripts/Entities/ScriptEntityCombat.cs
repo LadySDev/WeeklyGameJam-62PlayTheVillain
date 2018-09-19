@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class ScriptEntityCombat : MonoBehaviour {
 
     [SerializeField]
+    private bool isEnnemySide;
+
+    [SerializeField]
     private int attackPoint;
 
     [SerializeField]
@@ -14,20 +17,37 @@ public class ScriptEntityCombat : MonoBehaviour {
     [SerializeField]
     private int magicPointLoot;
 
+    [SerializeField]
+    private float detectionDistance;
+
     private float timer;
     private bool isInCombat;
     private GameObject currentEnnemy;
 
     private ScriptMagicPoint scriptMP;
+    private ScriptEntityDetectionZone scriptDetectZone;
 
     // Use this for initialization
-    void Start () {
+    void Start () {        
+
         timer = 0;
 
         isInCombat = false;
 
         scriptMP = GameObject.Find("TxtMagicPointNumber").GetComponent<ScriptMagicPoint>();
 
+        GameObject detectZone = new GameObject(gameObject.name + "DetectZone");
+        detectZone.transform.parent = gameObject.transform;
+        detectZone.transform.localPosition = new Vector3(0, 0, 0);
+
+        Rigidbody2D rb2d = detectZone.AddComponent<Rigidbody2D>();
+        rb2d.gravityScale = 0;
+
+        BoxCollider2D bc2d = detectZone.AddComponent<BoxCollider2D>();
+        bc2d.isTrigger = true;
+        bc2d.size = new Vector2(detectionDistance, detectionDistance);
+
+        scriptDetectZone = detectZone.AddComponent<ScriptEntityDetectionZone>();
     }
 	
 	// Update is called once per frame
@@ -41,38 +61,12 @@ public class ScriptEntityCombat : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        //ennemy detection
-        Vector2 v2RayUp = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + 0.55f);
-        RaycastHit2D rayUp = Physics2D.Raycast(v2RayUp, Vector2.up);
-
-        Vector2 v2RayDown = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.55f);
-        RaycastHit2D rayDown = Physics2D.Raycast(v2RayDown, Vector2.down);
-
-        Vector2 v2RayLeft = new Vector2(gameObject.transform.position.x - 0.55f, gameObject.transform.position.y);
-        RaycastHit2D rayLeft = Physics2D.Raycast(v2RayLeft, Vector2.left);
-
-        Vector2 v2RayRight = new Vector2(gameObject.transform.position.x + 0.55f, gameObject.transform.position.y);
-        RaycastHit2D rayRight = Physics2D.Raycast(v2RayRight, Vector2.right);
-
-        if (rayUp.collider != null)
-        {
+        //detect something
+        if (scriptDetectZone.GetIsDetectedSomething() == true)
+        {            
             isInCombat = true;
-            currentEnnemy = rayUp.collider.gameObject;
-        }
-        else if (rayDown.collider != null)
-        {
-            isInCombat = true;
-            currentEnnemy = rayDown.collider.gameObject;
-        }
-        else if (rayLeft.collider != null)
-        {
-            isInCombat = true;
-            currentEnnemy = rayLeft.collider.gameObject;
-        }
-        else if (rayRight.collider != null)
-        {
-            isInCombat = true;
-            currentEnnemy = rayRight.collider.gameObject;
+            currentEnnemy = scriptDetectZone.GetDetectedObject();
+            scriptDetectZone.SetIsDetectedSomething(false);
         }
 
         //combat begin
@@ -102,6 +96,11 @@ public class ScriptEntityCombat : MonoBehaviour {
     public bool GetIsInCombat()
     {
         return isInCombat;
+    }
+
+    public bool GetIsEnnemySide()
+    {
+        return isEnnemySide;
     }
 
 }

@@ -13,6 +13,9 @@ public class ScriptLevelGenerator : MonoBehaviour {
     [SerializeField]
     private GameObject ennemy1;
 
+    [SerializeField]
+    private GameObject ennemy2;
+
     private GameObject paths;
     private GameObject grounds;
     private GameObject ennemies;
@@ -78,6 +81,12 @@ public class ScriptLevelGenerator : MonoBehaviour {
                 if (1 == value)
                 {
                     GameObject i = Instantiate(ennemy1, ennemies.transform);
+                    i.GetComponent<RectTransform>().position = new Vector3(x, -y, 0);
+                }
+
+                if (2 == value)
+                {
+                    GameObject i = Instantiate(ennemy2, ennemies.transform);
                     i.GetComponent<RectTransform>().position = new Vector3(x, -y, 0);
                 }
             }
