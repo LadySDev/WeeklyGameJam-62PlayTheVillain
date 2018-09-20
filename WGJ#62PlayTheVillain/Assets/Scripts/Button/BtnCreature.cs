@@ -14,6 +14,7 @@ public class BtnCreature : MonoBehaviour {
     [SerializeField]
     private GameObject creature;
 
+    private ScriptLevelGenerator scrLevelGen;
     private Vector2 startPosition;
 
     private bool canBeInteractable;
@@ -23,15 +24,19 @@ public class BtnCreature : MonoBehaviour {
         
         gameObject.GetComponent<Button>().onClick.AddListener(PlaceCreature);
 
-        startPosition = GameObject.Find("Level").GetComponent<ScriptLevelGenerator>().GetStartPosition();
+        scrLevelGen = GameObject.Find("Level").GetComponent<ScriptLevelGenerator>();
+        startPosition = scrLevelGen.GetStartPosition();
         
         scriptMP = GameObject.Find("TxtMagicPointNumber").GetComponent<ScriptMagicPoint>();
+        mp = scriptMP.GetMagicPoint();
 
         canBeInteractable = true;
     }
 	
 	// Update is called once per frame
 	void Update () {
+
+        startPosition = scrLevelGen.GetStartPosition();
 
         mp = scriptMP.GetMagicPoint();
 

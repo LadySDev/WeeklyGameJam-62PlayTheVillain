@@ -74,7 +74,7 @@ public class ScriptEntityCombat : MonoBehaviour {
         {
             timer = timer + Time.deltaTime;
 
-            if (timer >= attackSpeed && currentEnnemy.GetComponent<ScriptEntityHealth>().GetHealth() > 0)
+            if (timer >= attackSpeed && currentEnnemy != null && currentEnnemy.GetComponent<ScriptEntityHealth>().GetHealth() > 0)
             {
 
                 currentEnnemy.GetComponent<ScriptEntityHealth>().SetHealth(currentEnnemy.GetComponent<ScriptEntityHealth>().GetHealth() - attackPoint);
@@ -86,6 +86,11 @@ public class ScriptEntityCombat : MonoBehaviour {
 
                 timer = 0;
 
+            }
+
+            if (currentEnnemy == null)
+            {
+                isInCombat = false;
             }
 
         }

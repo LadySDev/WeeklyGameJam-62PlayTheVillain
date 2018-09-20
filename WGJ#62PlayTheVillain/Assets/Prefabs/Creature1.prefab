@@ -139,10 +139,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnnemySide: 0
-  attackPoint: 30
+  attackPoint: 20
   attackSpeed: 1
   magicPointLoot: 0
-  detectionDistance: 1
+  detectionDistance: 1.5
 --- !u!212 &212883434050535228
 SpriteRenderer:
   m_ObjectHideFlags: 1

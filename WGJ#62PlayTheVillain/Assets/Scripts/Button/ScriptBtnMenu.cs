@@ -38,6 +38,11 @@ public class ScriptBtnMenu : MonoBehaviour {
                 go.SetActive(false);
             }
 
+            if ("BtnContinue" == go.name)
+            {
+                go.GetComponent<Button>().interactable = true;
+            }
+
         }
         
         btnMenu.interactable = false;
@@ -74,6 +79,8 @@ public class ScriptBtnMenu : MonoBehaviour {
     {
         ShowMenu();
 
+        ScriptLevelGenerator scrLevelGen = GameObject.Find("Level").GetComponent< ScriptLevelGenerator>();
+
         GameObject[] sceneObjects = Resources.FindObjectsOfTypeAll<GameObject>();
         foreach (GameObject go in sceneObjects)
         {            
@@ -83,9 +90,14 @@ public class ScriptBtnMenu : MonoBehaviour {
                 go.GetComponent<Text>().text = "You Win !";
             }
 
-            if ("BtnNextLevel" == go.name)
+            if ("BtnNextLevel" == go.name && scrLevelGen.GetLevelNumber() < scrLevelGen.GetMaxLevelNumber())
             {
                 go.SetActive(true);
+            }
+
+            if ("BtnContinue" == go.name)
+            {
+                go.GetComponent<Button>().interactable = false;
             }
 
         }
@@ -104,7 +116,12 @@ public class ScriptBtnMenu : MonoBehaviour {
                 go.SetActive(true);
                 go.GetComponent<Text>().text = "You Lose !";
             }
-            
+
+            if ("BtnContinue" == go.name)
+            {
+                go.GetComponent<Button>().interactable = false;
+            }
+
         }
 
     }
