@@ -4,16 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ScriptBtnContinue : MonoBehaviour {
-
-    private GameObject menu;
-    private Button btnContinue;
+       
 
 	// Use this for initialization
 	void Start () {
 
-        menu = GameObject.Find("Menu");
-
-        btnContinue = gameObject.GetComponent<Button>();
+        Button btnContinue = gameObject.GetComponent<Button>();
         btnContinue.onClick.AddListener(DisableMenu);
 
 	}
@@ -25,16 +21,7 @@ public class ScriptBtnContinue : MonoBehaviour {
 
     private void DisableMenu()
     {
-        GameObject.Find("BtnMenu").GetComponent<Button>().interactable = true;
-
-        foreach (Transform child in GameObject.Find("PanelCreatures").transform)
-        {
-            child.gameObject.GetComponent<Button>().interactable = true;
-        }
-
-        menu.SetActive(false);
-
-        Time.timeScale = 1;
+        GameObject.Find("BtnMenu").GetComponent<ScriptBtnMenu>().DisableMenu();
     }
 
 }

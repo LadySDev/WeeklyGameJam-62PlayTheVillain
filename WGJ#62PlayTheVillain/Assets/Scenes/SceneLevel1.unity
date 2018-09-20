@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 5
-  creature: {fileID: 1265215445628552, guid: c0654bba9ee367748b4b846738ccc4d4, type: 2}
+  creature: {fileID: 1160418464936732, guid: 7cc303ab61386fe40b830cc103d5d98d, type: 2}
 --- !u!1 &369792785
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,6 +1009,7 @@ MonoBehaviour:
   path: {fileID: 1416473326209902, guid: aafd393fc6310f94c89ecdc3b3b41273, type: 2}
   ground: {fileID: 1430358721572146, guid: d376f650dbb31824d949adc3078c206a, type: 2}
   ennemy1: {fileID: 1832550834737550, guid: 2103c610971a5444fa24d9eff402a4b7, type: 2}
+  ennemy2: {fileID: 1390889451707364, guid: b09fae64d133ca941816855632e9c646, type: 2}
 --- !u!4 &1132964538
 Transform:
   m_ObjectHideFlags: 0

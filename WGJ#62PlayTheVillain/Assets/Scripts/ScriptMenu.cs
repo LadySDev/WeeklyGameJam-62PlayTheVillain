@@ -6,7 +6,10 @@ public class ScriptMenu : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-       
+
+        GameObject.Find("TxtResult").SetActive(false);
+        GameObject.Find("BtnNextLevel").SetActive(false);
+
         gameObject.SetActive(false);
 
     }

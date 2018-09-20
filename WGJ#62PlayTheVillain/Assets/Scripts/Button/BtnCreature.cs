@@ -16,14 +16,18 @@ public class BtnCreature : MonoBehaviour {
 
     private Vector2 startPosition;
 
-	// Use this for initialization
+    private bool canBeInteractable;
+
+    // Use this for initialization
 	void Start () {
         
         gameObject.GetComponent<Button>().onClick.AddListener(PlaceCreature);
 
         startPosition = GameObject.Find("Level").GetComponent<ScriptLevelGenerator>().GetStartPosition();
-
+        
         scriptMP = GameObject.Find("TxtMagicPointNumber").GetComponent<ScriptMagicPoint>();
+
+        canBeInteractable = true;
     }
 	
 	// Update is called once per frame
@@ -31,15 +35,21 @@ public class BtnCreature : MonoBehaviour {
 
         mp = scriptMP.GetMagicPoint();
 
-        if (mp < cost)
+        if (canBeInteractable == true)
         {
-            gameObject.GetComponent<Button>().interactable = false;
+            if (mp < cost)
+            {
+                gameObject.GetComponent<Button>().interactable = false;
+            }
+            else
+            {
+                gameObject.GetComponent<Button>().interactable = true;
+            }
         }
         else
         {
-            gameObject.GetComponent<Button>().interactable = true;
+            gameObject.GetComponent<Button>().interactable = false;
         }
-
     }
 
     private void PlaceCreature()
@@ -48,6 +58,11 @@ public class BtnCreature : MonoBehaviour {
         Instantiate(creature, position, Quaternion.identity, GameObject.Find("PlayerArmy").transform);
                 
         scriptMP.AddMagicPoint(-cost);
+    }
+
+    public void SetCanBeInteractable(bool canBe)
+    {
+        canBeInteractable = canBe;
     }
 
 }

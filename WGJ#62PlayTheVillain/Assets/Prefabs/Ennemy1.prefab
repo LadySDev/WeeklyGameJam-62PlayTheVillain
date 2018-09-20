@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114389432788770812}
   m_Layer: 0
   m_Name: Ennemy1
-  m_TagString: Untagged
+  m_TagString: Entities
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,7 +39,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1832550834737550}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -88,10 +88,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a370c6ccd7ac0a4a8aa7b05e3d17423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEnnemySide: 1
   attackPoint: 20
   attackSpeed: 1
   magicPointLoot: 5
-  detectionDistance: 0
+  detectionDistance: 1
 --- !u!114 &114693546761366642
 MonoBehaviour:
   m_ObjectHideFlags: 1

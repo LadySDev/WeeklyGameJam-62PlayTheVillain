@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114946658669567272}
   m_Layer: 0
   m_Name: Ennemy2
-  m_TagString: Untagged
+  m_TagString: Entities
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,10 +112,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a370c6ccd7ac0a4a8aa7b05e3d17423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEnnemySide: 1
   attackPoint: 20
   attackSpeed: 1
   magicPointLoot: 10
-  detectionDistance: 0
+  detectionDistance: 2
 --- !u!212 &212251521724324336
 SpriteRenderer:
   m_ObjectHideFlags: 1

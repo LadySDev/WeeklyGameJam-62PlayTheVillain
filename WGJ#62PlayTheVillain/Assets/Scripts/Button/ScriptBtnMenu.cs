@@ -6,17 +6,13 @@ using UnityEngine.UI;
 public class ScriptBtnMenu : MonoBehaviour {
 
     private Button btnMenu;
-
-    private GameObject menu;
-
+    
     // Use this for initialization
     void Start () {
 
         btnMenu = gameObject.GetComponent<Button>();
         btnMenu.onClick.AddListener(ShowMenu);
-
-        menu = GameObject.Find("Menu");
-
+        
     }
 
     private void ShowMenu()
@@ -31,15 +27,85 @@ public class ScriptBtnMenu : MonoBehaviour {
             {
                 go.SetActive(true);
             }
-        }
 
+            if ("TxtResult" == go.name)
+            {
+                go.SetActive(false);
+            }
+
+            if ("BtnNextLevel" == go.name)
+            {
+                go.SetActive(false);
+            }
+
+        }
+        
         btnMenu.interactable = false;
 
         foreach (Transform child in GameObject.Find("PanelCreatures").transform)
         {
-            child.gameObject.GetComponent<Button>().interactable = false;
+            child.gameObject.GetComponent<BtnCreature>().SetCanBeInteractable(false);
         }
                 
     }
 
+    public void DisableMenu()
+    {
+        GameObject[] sceneObjects = Resources.FindObjectsOfTypeAll<GameObject>();
+        foreach (GameObject go in sceneObjects)
+        {
+            if ("Menu" == go.name)
+            {
+                go.SetActive(false);
+            }
+        }
+
+        btnMenu.interactable = true;
+
+        foreach (Transform child in GameObject.Find("PanelCreatures").transform)
+        {
+            child.gameObject.GetComponent<BtnCreature>().SetCanBeInteractable(true);
+        }
+        
+        Time.timeScale = 1;
+    }
+
+    public void ShowWinMenu()
+    {
+        ShowMenu();
+
+        GameObject[] sceneObjects = Resources.FindObjectsOfTypeAll<GameObject>();
+        foreach (GameObject go in sceneObjects)
+        {            
+            if ("TxtResult" == go.name)
+            {
+                go.SetActive(true);
+                go.GetComponent<Text>().text = "You Win !";
+            }
+
+            if ("BtnNextLevel" == go.name)
+            {
+                go.SetActive(true);
+            }
+
+        }
+
+    }
+
+    public void ShowLoseMenu()
+    {
+        ShowMenu();
+
+        GameObject[] sceneObjects = Resources.FindObjectsOfTypeAll<GameObject>();
+        foreach (GameObject go in sceneObjects)
+        {           
+            if ("TxtResult" == go.name)
+            {
+                go.SetActive(true);
+                go.GetComponent<Text>().text = "You Lose !";
+            }
+            
+        }
+
+    }
 }

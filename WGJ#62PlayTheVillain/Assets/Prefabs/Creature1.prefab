@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 114697524891430550}
   m_Layer: 0
   m_Name: Creature1
-  m_TagString: Untagged
+  m_TagString: Entities
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,7 +53,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1265215445628552}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -89,7 +89,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &114332568806692386
 MonoBehaviour:
@@ -138,10 +138,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a370c6ccd7ac0a4a8aa7b05e3d17423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEnnemySide: 0
   attackPoint: 30
   attackSpeed: 1
   magicPointLoot: 0
-  detectionDistance: 0
+  detectionDistance: 1
 --- !u!212 &212883434050535228
 SpriteRenderer:
   m_ObjectHideFlags: 1

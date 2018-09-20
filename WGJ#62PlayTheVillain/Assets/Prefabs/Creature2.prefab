@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 114238952711367752}
   m_Layer: 0
   m_Name: Creature2
-  m_TagString: Untagged
+  m_TagString: Entities
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,10 +115,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a370c6ccd7ac0a4a8aa7b05e3d17423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackPoint: 30
+  isEnnemySide: 0
+  attackPoint: 20
   attackSpeed: 1
   magicPointLoot: 0
-  detectionDistance: 0
+  detectionDistance: 2
 --- !u!114 &114386278494284730
 MonoBehaviour:
   m_ObjectHideFlags: 1
